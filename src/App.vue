@@ -1,47 +1,63 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+import { computed } from 'vue';
+import { useStore } from 'vuex';
+import TextLabel from './components/TextLabel.vue'
+import SidebarUserSearch from './components/SidebarUserSearch.vue'
+import SelectedUser from './components/SelectedUser.vue'
+
+const store = useStore();
+const user = computed(()=>store.state.selectedUser);
 </script>
 
 <template>
   <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-    </div>
+    <TextLabel bold class="logo">Жилфонд</TextLabel>
+    <TextLabel class="user">Пользователь</TextLabel>
   </header>
 
   <main>
-    <TheWelcome />
+    <SidebarUserSearch class="sidebar" />
+    <div v-if="user">
+      <SelectedUser />
+    </div>
+    <TextLabel class="user-not-selected" v-else>Выберите сотрудника, чтобы посмотреть его профиль</TextLabel>
   </main>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
 header {
-  line-height: 1.5;
-}
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 20px;
 
   .logo {
-    margin: 0 2rem 0 0;
+    color: hsl(0, 100%, 50%);
+    font-size: 32px;
+  }
+}
+
+main {
+  display: flex;
+  flex: 1;
+  border-radius: 5px;
+  background-color: hsl(0, 0%, 99%);
+  box-shadow: 0px 0px 10px hsla(0, 0%, 0%, 0.2);
+  width: 100%;
+
+  .sidebar {
+    min-width: 20%;
+    max-width: 20%;
+    border-right: 1px solid hsl(0, 0%, 88%);
+    padding: 15px;
   }
 
-  header .wrapper {
+  .user-not-selected {
     display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
   }
 }
 </style>
