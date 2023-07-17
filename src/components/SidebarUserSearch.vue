@@ -12,16 +12,15 @@ function onSearchChange(e) {
 
 <template>
   <div class="sidebar">
-    <TextLabel class="label" bold color="black">Поиск сотрудников</TextLabel>
+    <TextLabel class="label" bold color="#333333">Поиск сотрудников</TextLabel>
     <TextBox class="text-box" @change="onSearchChange" />
-    <TextLabel class="label" bold color="black">Результаты</TextLabel>
+    <TextLabel class="label" bold color="#333333">Результаты</TextLabel>
     <UserList />
   </div>
 </template>
 
 <style lang="scss" scoped>
 .sidebar {
-  padding-top: 20px;
   height: 100%;
 
   .label {

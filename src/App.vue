@@ -33,7 +33,7 @@ header {
   margin-bottom: 20px;
 
   .logo {
-    color: hsl(0, 100%, 50%);
+    color: hsl(358, 78%, 51%);
     font-size: 32px;
   }
 }
@@ -50,7 +50,7 @@ main {
     min-width: 20%;
     max-width: 20%;
     border-right: 1px solid hsl(0, 0%, 88%);
-    padding: 15px;
+    padding: 40px 30px 50px 20px;
   }
 
   .user-not-selected {

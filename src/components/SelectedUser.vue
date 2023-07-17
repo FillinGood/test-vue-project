@@ -15,15 +15,15 @@ const user = computed(() => store.state.selectedUser);
   </div>
     <div class="selected-user--info">
       <TextLabel class="selected-user--info-name" bold>{{ user.name }}</TextLabel>
-      <div>
-        <TextLabel class="selected-user--info-email" bold>email:</TextLabel>
+      <div class="selected-user--info-email">
+        <TextLabel bold>email:</TextLabel>
         <TextLabel>{{ user.email }}</TextLabel>
       </div>
-      <div>
-        <TextLabel class="selected-user--info-name" bold>phone:</TextLabel>
+      <div class="selected-user--info-phone">
+        <TextLabel bold>phone:</TextLabel>
         <TextLabel>{{ user.phone }}</TextLabel>
       </div>
-      <TextLabel bold>О себе:</TextLabel>
+      <TextLabel class="selected-user--info-about-user" bold>О себе:</TextLabel>
       <TextLabel
         >Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
         ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
@@ -39,7 +39,7 @@ const user = computed(() => store.state.selectedUser);
 <style lang="scss" scoped>
 .selected-user {
   display: flex;
-  padding: 30px 15px;
+  padding: 40px 15px;
   gap: 70px;
 
   .selected-user--image-container {
@@ -54,6 +54,26 @@ const user = computed(() => store.state.selectedUser);
 
   .selected-user--info {
     flex: 1;
+    padding-right: 15px;
+
+    .selected-user--info-name {
+      font-size: 16px;
+      color: hsl(0, 0%, 0%);
+      margin-bottom: 20px;
+    }
+
+    .selected-user--info-email, .selected-user--info-phone {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 20px; 
+    }
+
+    .selected-user--info-about-user {
+      font-size: 16px;
+      color: hsl(0, 0%, 20%);
+      margin-top: 10px;
+      margin-bottom: 30px;
+    }
   }
 }
 </style>
